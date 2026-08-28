@@ -8,6 +8,7 @@
   body { font-family: -apple-system, sans-serif; padding: 24px; font-size: 18px; background: #111; color: #eee; }
   button { font-size: 22px; padding: 20px 28px; width: 100%; border-radius: 12px; border: none; background: #2a6; color: white; }
   #status { margin-top: 24px; font-size: 20px; text-align: center; min-height: 2em; }
+  #hearing { text-align: center; font-size: 24px; color: #6cf; min-height: 1.5em; }
   #error { margin-top: 20px; padding: 16px; background: #611; border-radius: 8px; display: none; white-space: pre-wrap; }
   #end-box { display: none; margin-top: 24px; }
   #results { margin-top: 20px; }
@@ -21,8 +22,14 @@
 </head>
 <body>
 <p style="color:#aaa">3-item test — same code as the real page, just a short session so you don't have to go through all 40.</p>
+<p style="color:#aaa">The last of the 3 is a CLOZE exercise: it plays a full sentence with a
+silent gap where the word belongs. <strong>Wait for the whole sentence to
+finish</strong> before answering — the gap inside the sentence is just
+audio context, not your cue to speak. Speak only after it's fully done
+playing.</p>
 <button id="go">Tap to start</button>
 <div id="status"></div>
+<div id="hearing"></div>
 <div id="error"></div>
 <div id="end-box">
   <p>Test complete.</p>
@@ -35,7 +42,10 @@
 <script>
 const statusEl = document.getElementById('status');
 const errorEl = document.getElementById('error');
+const hearingEl = document.getElementById('hearing');
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+window.__onInterim = (text) => { hearingEl.textContent = text ? '"' + text + '"' : ''; };
 
 function showError(msg) {
   errorEl.textContent = msg;
@@ -52,6 +62,7 @@ document.getElementById('go').addEventListener('click', async () => {
   try {
     await runSession('test-session.json', (s) => { statusEl.textContent = s; });
     statusEl.textContent = '';
+    hearingEl.textContent = '';
     document.getElementById('end-box').style.display = 'block';
 
     const resultsEl = document.getElementById('results');

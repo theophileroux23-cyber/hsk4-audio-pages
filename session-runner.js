@@ -32,6 +32,13 @@ async function playClipsSequentially(basenames) {
   }
 }
 
+// Live interim-transcript hook, no-op by default (index.html leaves it
+// alone -- hands-free by design). quick-test.html overrides this to show
+// what the recognizer is hearing in real time, which is far more useful
+// for diagnosing "is the mic even picking me up" than waiting for the
+// end-of-round verdict.
+window.__onInterim = function () {};
+
 let audioCtx = null;
 window.__beep = function beep(freqHz, durationMs) {
   log('beep', freqHz);
@@ -96,6 +103,7 @@ function captureSpeech(windowSeconds) {
       let text = '';
       for (let i = 0; i < e.results.length; i++) text += e.results[i][0].transcript;
       latest = text;
+      window.__onInterim(text);
       armSilenceTimer(); // new speech signal just arrived -- he may still be talking, so extend
     };
     rec.onerror = (e) => {
@@ -104,10 +112,12 @@ function captureSpeech(windowSeconds) {
         reject(new Error('Microphone permission denied (' + e.error + ').'));
         return;
       }
+      window.__onInterim('(recognition error: ' + e.error + ')');
       finish();
     };
     rec.onend = finish;
 
+    window.__onInterim('(listening...)');
     try {
       rec.start();
     } catch (err) {
