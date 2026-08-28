@@ -59,7 +59,12 @@ function captureSpeech(windowSeconds) {
     const rec = new SR();
     rec.lang = 'zh-CN';
     rec.interimResults = true;
-    rec.continuous = true;
+    // Single utterance: the engine ends recognition on its own once it
+    // detects he's stopped speaking, instead of holding the mic open for
+    // the full window regardless (continuous:true was found in real-world
+    // use to leave 3-4s of dead air after he finished, and is suspected of
+    // making iOS's transcript capture unreliable besides).
+    rec.continuous = false;
     let latest = '';
     let settled = false;
 
@@ -73,8 +78,13 @@ function captureSpeech(windowSeconds) {
 
     rec.onresult = (e) => {
       let text = '';
-      for (let i = 0; i < e.results.length; i++) text += e.results[i][0].transcript;
+      let isFinal = false;
+      for (let i = 0; i < e.results.length; i++) {
+        text += e.results[i][0].transcript;
+        if (e.results[i].isFinal) isFinal = true;
+      }
       latest = text;
+      if (isFinal) finish(); // react the moment he's done, don't wait out the window
     };
     rec.onerror = (e) => {
       if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
@@ -84,6 +94,8 @@ function captureSpeech(windowSeconds) {
       }
       finish();
     };
+    // With continuous:false this also fires shortly after speech stops,
+    // even if a final result was somehow never flagged.
     rec.onend = finish;
 
     try {
@@ -92,7 +104,7 @@ function captureSpeech(windowSeconds) {
       reject(err);
       return;
     }
-    setTimeout(finish, windowSeconds * 1000);
+    setTimeout(finish, windowSeconds * 1000); // safety backstop only
   });
 }
 
