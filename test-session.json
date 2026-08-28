@@ -1,0 +1,73 @@
+{
+  "date": "2026-08-28",
+  "listening_window_seconds": 5.0,
+  "items": [
+    {
+      "index": 1,
+      "role": "info",
+      "item_id": null,
+      "clips": [
+        "240cbd7c9fc3ac0ef90c.mp3"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "一切",
+      "hanzi": "一切",
+      "pinyin": "yị̄qiè",
+      "meaning_en": "all; every; everything",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "ff442b809f98a1782236.mp3"
+      ],
+      "reveal_clips": [
+        "35790d5973e6585a7e01.mp3"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "专业",
+      "hanzi": "专业",
+      "pinyin": "zhuānyè",
+      "meaning_en": "profession; specialized field of study; major",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "fef41348639d6002a260.mp3"
+      ],
+      "reveal_clips": [
+        "6085e71e55a8d4416647.mp3"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "exercise",
+      "type": "CLOZE",
+      "item_id": "得",
+      "hanzi": "得",
+      "pinyin": "dé",
+      "meaning_en": "get; obtain; win; earn",
+      "prompt_clips": [
+        "aa6f9a59c1310b65ddb6.mp3",
+        "31fcf740bfeceb5fa168.mp3",
+        "b45e765514d1f939bfdf.mp3",
+        "4aabff67bbdec18be256.mp3"
+      ],
+      "reveal_clips": [
+        "0162fd1ad1d71359bb13.mp3"
+      ]
+    },
+    {
+      "index": 5,
+      "role": "info",
+      "item_id": null,
+      "clips": [
+        "9f9c829f18160afa4259.mp3"
+      ]
+    }
+  ],
+  "fallback_cloze_to_word_alone": []
+}
