@@ -10,8 +10,13 @@
   #status { margin-top: 24px; font-size: 20px; text-align: center; min-height: 2em; }
   #error { margin-top: 20px; padding: 16px; background: #611; border-radius: 8px; display: none; white-space: pre-wrap; }
   #end-box { display: none; margin-top: 24px; }
-  #grade-cmd { font-family: monospace; font-size: 16px; background: #222; padding: 16px; border-radius: 8px; word-break: break-all; }
-  #log { margin-top: 20px; font-family: monospace; font-size: 13px; white-space: pre-wrap; color: #9c9; }
+  #results { margin-top: 20px; }
+  .result { padding: 14px; border-radius: 8px; margin-bottom: 10px; }
+  .result.correct { background: #163; }
+  .result.incorrect { background: #611; }
+  .result .expected { font-size: 22px; }
+  .result .said { color: #ccc; margin-top: 4px; }
+  .result .verdict { font-weight: bold; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -21,9 +26,8 @@
 <div id="error"></div>
 <div id="end-box">
   <p>Test complete.</p>
-  <div id="grade-cmd"></div>
 </div>
-<div id="log"></div>
+<div id="results"></div>
 
 <script src="vendor/pinyin-pro.min.js"></script>
 <script src="match.js"></script>
@@ -31,7 +35,6 @@
 <script>
 const statusEl = document.getElementById('status');
 const errorEl = document.getElementById('error');
-const logEl = document.getElementById('log');
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 function showError(msg) {
@@ -47,14 +50,22 @@ document.getElementById('go').addEventListener('click', async () => {
     return;
   }
   try {
-    const { cmd } = await runSession('test-session.json', (s) => { statusEl.textContent = s; });
+    await runSession('test-session.json', (s) => { statusEl.textContent = s; });
     statusEl.textContent = '';
-    document.getElementById('grade-cmd').textContent = cmd;
     document.getElementById('end-box').style.display = 'block';
-    logEl.textContent = window.__sessionLog
-      .filter((e) => ['exercise_start', 'capture_result', 'graded'].includes(e.kind))
-      .map((e) => e.kind + ' ' + JSON.stringify(e.detail))
-      .join('\n');
+
+    const resultsEl = document.getElementById('results');
+    const graded = window.__sessionLog.filter((e) => e.kind === 'graded');
+    for (const e of graded) {
+      const d = e.detail;
+      const div = document.createElement('div');
+      div.className = 'result ' + (d.correct ? 'correct' : 'incorrect');
+      div.innerHTML =
+        `<div class="expected">${d.hanzi} (${d.pinyin}) — ${d.meaning_en || ''}</div>` +
+        `<div class="said">You said: "${d.transcript || '(nothing heard)'}"</div>` +
+        `<div class="verdict">${d.correct ? '✓ Correct' : '✗ Incorrect'}</div>`;
+      resultsEl.appendChild(div);
+    }
   } catch (err) {
     showError('Stopped: ' + err.message);
   }

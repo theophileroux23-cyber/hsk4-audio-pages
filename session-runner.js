@@ -59,32 +59,44 @@ function captureSpeech(windowSeconds) {
     const rec = new SR();
     rec.lang = 'zh-CN';
     rec.interimResults = true;
-    // Single utterance: the engine ends recognition on its own once it
-    // detects he's stopped speaking, instead of holding the mic open for
-    // the full window regardless (continuous:true was found in real-world
-    // use to leave 3-4s of dead air after he finished, and is suspected of
-    // making iOS's transcript capture unreliable besides).
-    rec.continuous = false;
+    // continuous:true -- but we no longer trust the engine's own built-in
+    // end-of-speech detection to decide when he's done, in either
+    // direction. Tried continuous:true + fixed wait first (real-world:
+    // ~3-4s of dead air after he finished). Tried continuous:false next,
+    // relying on iOS's own auto-endpointing (real-world: near-random
+    // transcripts like an unrelated brand name or an unrelated vulgar
+    // phrase for three different words -- the signature of very little
+    // actual speech reaching the recognizer, i.e. cut off too early).
+    // This version keeps the mic open (continuous:true, no auto-endpoint)
+    // and uses OUR OWN silence timer instead: reset a short countdown
+    // every time a new interim/final result arrives, and only finalize
+    // once that countdown elapses with nothing new -- i.e. he's actually
+    // stopped, not whenever the engine's internal VAD guesses he has.
+    rec.continuous = true;
+    const SILENCE_MS = 1200;
     let latest = '';
     let settled = false;
+    let silenceTimer = null;
 
     const finish = () => {
       if (settled) return;
       settled = true;
+      clearTimeout(silenceTimer);
       try { rec.stop(); } catch (e) {}
       log('capture_result', latest);
       resolve(latest);
     };
 
+    const armSilenceTimer = () => {
+      clearTimeout(silenceTimer);
+      silenceTimer = setTimeout(finish, SILENCE_MS);
+    };
+
     rec.onresult = (e) => {
       let text = '';
-      let isFinal = false;
-      for (let i = 0; i < e.results.length; i++) {
-        text += e.results[i][0].transcript;
-        if (e.results[i].isFinal) isFinal = true;
-      }
+      for (let i = 0; i < e.results.length; i++) text += e.results[i][0].transcript;
       latest = text;
-      if (isFinal) finish(); // react the moment he's done, don't wait out the window
+      armSilenceTimer(); // new speech signal just arrived -- he may still be talking, so extend
     };
     rec.onerror = (e) => {
       if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
@@ -94,8 +106,6 @@ function captureSpeech(windowSeconds) {
       }
       finish();
     };
-    // With continuous:false this also fires shortly after speech stops,
-    // even if a final result was somehow never flagged.
     rec.onend = finish;
 
     try {
@@ -104,7 +114,7 @@ function captureSpeech(windowSeconds) {
       reject(err);
       return;
     }
-    setTimeout(finish, windowSeconds * 1000); // safety backstop only
+    setTimeout(finish, windowSeconds * 1000); // hard backstop, e.g. total silence
   });
 }
 
@@ -113,7 +123,10 @@ async function runExercise(item, windowSeconds, missed) {
   await playClipsSequentially(item.prompt_clips);
   const transcript = await captureSpeech(windowSeconds);
   const result = gradeAttempt(transcript, item.hanzi, item.pinyin);
-  log('graded', { index: item.index, correct: result.correct, transcript });
+  log('graded', {
+    index: item.index, type: item.type, correct: result.correct, transcript,
+    hanzi: item.hanzi, pinyin: item.pinyin, meaning_en: item.meaning_en,
+  });
   if (result.correct) {
     await window.__beep(880, 150);
   } else {
