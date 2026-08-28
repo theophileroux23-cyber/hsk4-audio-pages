@@ -1,7 +1,58 @@
 <!doctype html>
 <html>
-<head><meta charset="utf-8"><title>hsk4-audio-pages</title></head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HSK4 interactive session</title>
+<style>
+  body { font-family: -apple-system, sans-serif; padding: 24px; font-size: 18px; background: #111; color: #eee; }
+  button { font-size: 22px; padding: 20px 28px; width: 100%; border-radius: 12px; border: none; background: #2a6; color: white; }
+  #status { margin-top: 24px; font-size: 20px; text-align: center; min-height: 3em; }
+  #error { margin-top: 20px; padding: 16px; background: #611; border-radius: 8px; display: none; white-space: pre-wrap; }
+  #end-box { display: none; margin-top: 24px; }
+  #grade-cmd { font-family: monospace; font-size: 16px; background: #222; padding: 16px; border-radius: 8px; word-break: break-all; user-select: all; -webkit-user-select: all; }
+  #copy-hint { margin-top: 10px; color: #aaa; font-size: 14px; }
+</style>
+</head>
 <body>
-<p>Placeholder — waiting for the first daily workflow run to publish today.mp3 here.</p>
+<button id="go">Tap to start</button>
+<div id="status"></div>
+<div id="error"></div>
+<div id="end-box">
+  <p>Session complete. Report what you missed with:</p>
+  <div id="grade-cmd"></div>
+  <div id="copy-hint">Tap the box to select it, then copy.</div>
+</div>
+
+<script src="vendor/pinyin-pro.min.js"></script>
+<script src="match.js"></script>
+<script src="session-runner.js"></script>
+<script>
+const statusEl = document.getElementById('status');
+const errorEl = document.getElementById('error');
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+function showError(msg) {
+  errorEl.textContent = msg + '\n\nUse the audio fallback instead: today.mp3';
+  errorEl.style.display = 'block';
+  statusEl.textContent = '';
+}
+
+document.getElementById('go').addEventListener('click', async () => {
+  document.getElementById('go').style.display = 'none';
+  if (!SR) {
+    showError('SpeechRecognition is not available in this browser/context.');
+    return;
+  }
+  try {
+    const { cmd } = await runSession('today-session.json', (s) => { statusEl.textContent = s; });
+    statusEl.textContent = '';
+    document.getElementById('grade-cmd').textContent = cmd;
+    document.getElementById('end-box').style.display = 'block';
+  } catch (err) {
+    showError('Session stopped: ' + err.message);
+  }
+});
+</script>
 </body>
 </html>

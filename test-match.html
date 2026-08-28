@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>match.js unit tests</title></head>
+<body>
+<pre id="results">running...</pre>
+<script src="vendor/pinyin-pro.min.js"></script>
+<script src="match.js"></script>
+<script>
+const cases = [
+  // [name, transcript, expectedHanzi, expectedPinyin, expectCorrect]
+  ['exact hanzi match', '得', '得', 'dé', true],
+  ['correct toneless pinyin, wrong tone marks (transcript is a homophone-ish different char but same reading)', '德', '得', 'dé', true],
+  ['genuine mismatch', '不对', '得', 'dé', false],
+  ['exact hanzi match, multi-char word', '专业', '专业', 'zhuānyè', true],
+  ['toneless pinyin match, multi-char, different chars same reading', '专业', '专业', 'zhuanye', true],
+  ['genuine mismatch, multi-char', '世纪', '专业', 'zhuānyè', false],
+  ['known data-quality case: malformed stored pinyin for 一切 still matches on hanzi', '一切', '一切', 'yị̄qiè', true],
+  ['known data-quality case: malformed stored pinyin for 一切 still matches on toneless pinyin from a homophone', '译且', '一切', 'yị̄qiè', true],
+  ['empty transcript never matches', '', '得', 'dé', false],
+];
+
+let pass = 0, fail = 0;
+let out = '';
+for (const [name, transcript, hanzi, pinyin, expect] of cases) {
+  const r = gradeAttempt(transcript, hanzi, pinyin);
+  const ok = r.correct === expect;
+  if (ok) pass++; else fail++;
+  out += `[${ok ? 'PASS' : 'FAIL'}] ${name}\n`;
+  out += `    transcript=${JSON.stringify(transcript)} expectedHanzi=${JSON.stringify(hanzi)} expectedPinyin=${JSON.stringify(pinyin)}\n`;
+  out += `    got correct=${r.correct} (exactHanzi=${r.exactHanzi} pinyinMatch=${r.pinyinMatch}) transcriptPinyin=${JSON.stringify(r.transcriptPinyin)} expectedPinyinStripped=${JSON.stringify(r.expectedPinyinStripped)} — expected correct=${expect}\n`;
+}
+out += `\n${pass}/${pass+fail} passed\n`;
+document.getElementById('results').textContent = out;
+console.log(out);
+console.log('TESTS_DONE ' + (fail === 0 ? 'ALL_PASS' : 'SOME_FAIL'));
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>dry run</title></head>
+<body>
+<pre id="out">running...</pre>
+
+<script src="vendor/pinyin-pro.min.js"></script>
+<script src="match.js"></script>
+<script>
+// Mock SpeechRecognition: pops one scripted transcript per exercise, in
+// order, and fires it almost immediately (no real 5s wait needed for a
+// scripted dry run). window.__script is filled in after today-session.json
+// loads, alternating a correct transcript / a deliberately wrong one, so
+// both grading paths and the final --missed list get exercised.
+window.__script = [];
+class MockSR {
+  constructor() { this.lang = ''; this.interimResults = true; this.continuous = true; }
+  start() {
+    const transcript = window.__script.shift();
+    setTimeout(() => {
+      if (this.onresult) {
+        this.onresult({ results: [[{ transcript }]].map((r) => Object.assign(r, { isFinal: true })) });
+      }
+      if (this.onend) this.onend();
+    }, 5);
+  }
+  stop() {}
+}
+window.SpeechRecognition = MockSR;
+</script>
+<script src="session-runner.js"></script>
+<script>
+// Dry run verifies LOGIC (grading, reveal-after-every-attempt, the missed
+// list), not real audio playback -- clip existence/reachability is
+// verified separately (acceptance check 4). Real <audio>.play() would also
+// be blocked here anyway (no user gesture in an automated page load) and
+// would make a 40-exercise run take minutes instead of seconds. Still logs
+// a 'clip_played' entry per clip, same shape session-runner.js produces,
+// so the log-based assertions below exercise the real control flow.
+window.__playClip = function (basename) {
+  window.__sessionLog.push({ kind: 'clip_played', detail: basename, t: Date.now() });
+  return Promise.resolve();
+};
+window.__beep = function (freqHz) {
+  window.__sessionLog.push({ kind: 'beep', detail: freqHz, t: Date.now() });
+  return Promise.resolve();
+};
+
+async function main() {
+  const res = await fetch('today-session.json', { cache: 'no-store' });
+  const session = await res.json();
+  const exercises = session.items.filter((i) => i.role === 'exercise');
+
+  const expectedMissed = [];
+  window.__script = exercises.map((item, i) => {
+    if (i % 2 === 0) {
+      return item.hanzi; // correct: exact hanzi match
+    } else {
+      expectedMissed.push(item.index);
+      return '完全不对的东西'; // deliberately wrong
+    }
+  });
+
+  const { missed, cmd } = await runSession('today-session.json', () => {});
+
+  const log = window.__sessionLog;
+  const revealCount = log.filter((e) => e.kind === 'reveal_played').length;
+  const gradedCount = log.filter((e) => e.kind === 'graded').length;
+
+  let out = '';
+  out += `exercises: ${exercises.length}\n`;
+  out += `graded events: ${gradedCount}\n`;
+  out += `reveal_played events: ${revealCount}\n`;
+  out += `every graded attempt followed by a reveal: ${gradedCount === revealCount ? 'YES' : 'NO -- MISMATCH'}\n`;
+  out += `\nexpected missed (scripted wrong): ${JSON.stringify(expectedMissed)}\n`;
+  out += `actual missed (from runSession):   ${JSON.stringify(missed)}\n`;
+  out += `missed lists match exactly: ${JSON.stringify(expectedMissed) === JSON.stringify(missed) ? 'YES' : 'NO -- MISMATCH'}\n`;
+  out += `\ngenerated grade.py command:\n${cmd}\n`;
+  out += `\n--- full step log (${log.length} entries) ---\n`;
+  for (const e of log) {
+    out += `${e.kind} ${JSON.stringify(e.detail)}\n`;
+  }
+
+  document.getElementById('out').textContent = out;
+  console.log(out);
+  const allOk = (gradedCount === revealCount) && (JSON.stringify(expectedMissed) === JSON.stringify(missed));
+  console.log('DRY_RUN_DONE ' + (allOk ? 'ALL_OK' : 'MISMATCH'));
+}
+main().catch((err) => {
+  document.getElementById('out').textContent = 'ERROR: ' + err.message + '\n' + err.stack;
+  console.log('DRY_RUN_DONE ERROR: ' + err.message);
+});
+</script>
+</body>
+</html>

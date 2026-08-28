@@ -1,0 +1,802 @@
+{
+  "date": "2026-08-27",
+  "listening_window_seconds": 5.0,
+  "items": [
+    {
+      "index": 1,
+      "role": "info",
+      "item_id": null,
+      "clips": [
+        "1d9f64d86603cb03b627.mp3"
+      ]
+    },
+    {
+      "index": 2,
+      "role": "teach",
+      "item_id": "一切",
+      "hanzi": "一切",
+      "clips": [
+        "35790d5973e6585a7e01.mp3",
+        "68c68207d8903ea69583.mp3",
+        "ff442b809f98a1782236.mp3",
+        "84472a5f2edb726fbccd.mp3",
+        "35790d5973e6585a7e01.mp3",
+        "d5a964d5fc6a1babbfdd.mp3"
+      ]
+    },
+    {
+      "index": 3,
+      "role": "teach",
+      "item_id": "不仅",
+      "hanzi": "不仅",
+      "clips": [
+        "c480669969716bf3b2e2.mp3",
+        "0105be56744f229329ec.mp3",
+        "03d576a64eb9b199a2cd.mp3",
+        "f6e905244133f30f1d76.mp3",
+        "c480669969716bf3b2e2.mp3",
+        "d5a964d5fc6a1babbfdd.mp3"
+      ]
+    },
+    {
+      "index": 4,
+      "role": "teach",
+      "item_id": "不得不",
+      "hanzi": "不得不",
+      "clips": [
+        "312eb7d989914a019929.mp3",
+        "9506fedac88bd7a21eb0.mp3",
+        "548b29828db4153ed5d3.mp3",
+        "312eb7d989914a019929.mp3",
+        "d5a964d5fc6a1babbfdd.mp3"
+      ]
+    },
+    {
+      "index": 5,
+      "role": "teach",
+      "item_id": "不管",
+      "hanzi": "不管",
+      "clips": [
+        "26aaae35d3696355e652.mp3",
+        "08148ee03b1f97f26808.mp3",
+        "158e4d77543378e07fd4.mp3",
+        "368940bc280fdeac3577.mp3",
+        "26aaae35d3696355e652.mp3",
+        "d5a964d5fc6a1babbfdd.mp3"
+      ]
+    },
+    {
+      "index": 6,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "一切",
+      "hanzi": "一切",
+      "pinyin": "yị̄qiè",
+      "meaning_en": "all; every; everything",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "ff442b809f98a1782236.mp3"
+      ],
+      "reveal_clips": [
+        "35790d5973e6585a7e01.mp3"
+      ]
+    },
+    {
+      "index": 7,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不仅",
+      "hanzi": "不仅",
+      "pinyin": "bùjǐn",
+      "meaning_en": "not only; not just",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "03d576a64eb9b199a2cd.mp3"
+      ],
+      "reveal_clips": [
+        "c480669969716bf3b2e2.mp3"
+      ]
+    },
+    {
+      "index": 8,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不得不",
+      "hanzi": "不得不",
+      "pinyin": "bù dé bù",
+      "meaning_en": "have to; have no choice but to; cannot but",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "548b29828db4153ed5d3.mp3"
+      ],
+      "reveal_clips": [
+        "312eb7d989914a019929.mp3"
+      ]
+    },
+    {
+      "index": 9,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不管",
+      "hanzi": "不管",
+      "pinyin": "bùguǎn",
+      "meaning_en": "no matter (what, how, etc.); regardless of",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "158e4d77543378e07fd4.mp3"
+      ],
+      "reveal_clips": [
+        "26aaae35d3696355e652.mp3"
+      ]
+    },
+    {
+      "index": 10,
+      "role": "teach",
+      "item_id": "不过",
+      "hanzi": "不过",
+      "clips": [
+        "427cb8cd8f082b8026d2.mp3",
+        "06599006fd8bf892e392.mp3",
+        "f2829bb9e9367d656878.mp3",
+        "5a90a930c7270fd681a1.mp3",
+        "427cb8cd8f082b8026d2.mp3",
+        "d5a964d5fc6a1babbfdd.mp3"
+      ]
+    },
+    {
+      "index": 11,
+      "role": "teach",
+      "item_id": "与",
+      "hanzi": "与",
+      "clips": [
+        "8588549f2cfb07457147.mp3",
+        "92023b5eb38f67eaba5e.mp3",
+        "0d7e29429ee552818a72.mp3",
+        "5312d7fe8e0cf372054f.mp3",
+        "8588549f2cfb07457147.mp3",
+        "d5a964d5fc6a1babbfdd.mp3"
+      ]
+    },
+    {
+      "index": 12,
+      "role": "teach",
+      "item_id": "专业",
+      "hanzi": "专业",
+      "clips": [
+        "6085e71e55a8d4416647.mp3",
+        "6601472d5aabd5cbe5db.mp3",
+        "fef41348639d6002a260.mp3",
+        "bc20925d1b7c90dc0c03.mp3",
+        "6085e71e55a8d4416647.mp3",
+        "d5a964d5fc6a1babbfdd.mp3"
+      ]
+    },
+    {
+      "index": 13,
+      "role": "teach",
+      "item_id": "专门",
+      "hanzi": "专门",
+      "clips": [
+        "fd23fa49987cb40abbc8.mp3",
+        "f7c52c985fb0eb3fce77.mp3",
+        "8191788156df11acd317.mp3",
+        "b3f9a8a2ff6bfa4bbd67.mp3",
+        "fd23fa49987cb40abbc8.mp3",
+        "d5a964d5fc6a1babbfdd.mp3"
+      ]
+    },
+    {
+      "index": 14,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不过",
+      "hanzi": "不过",
+      "pinyin": "bùguò",
+      "meaning_en": "but; however; only",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "f2829bb9e9367d656878.mp3"
+      ],
+      "reveal_clips": [
+        "427cb8cd8f082b8026d2.mp3"
+      ]
+    },
+    {
+      "index": 15,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "与",
+      "hanzi": "与",
+      "pinyin": "yǔ",
+      "meaning_en": "(formal) and; to give; together with; participate; final particle expressing doubt or surprise",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "0d7e29429ee552818a72.mp3"
+      ],
+      "reveal_clips": [
+        "8588549f2cfb07457147.mp3"
+      ]
+    },
+    {
+      "index": 16,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "专业",
+      "hanzi": "专业",
+      "pinyin": "zhuānyè",
+      "meaning_en": "profession; specialized field of study; major",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "fef41348639d6002a260.mp3"
+      ],
+      "reveal_clips": [
+        "6085e71e55a8d4416647.mp3"
+      ]
+    },
+    {
+      "index": 17,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "专门",
+      "hanzi": "专门",
+      "pinyin": "zhuānmén",
+      "meaning_en": "specialized",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "8191788156df11acd317.mp3"
+      ],
+      "reveal_clips": [
+        "fd23fa49987cb40abbc8.mp3"
+      ]
+    },
+    {
+      "index": 18,
+      "role": "teach",
+      "item_id": "世纪",
+      "hanzi": "世纪",
+      "clips": [
+        "4f29ea30e4da1110418b.mp3",
+        "eaf5b120fcd3112441e5.mp3",
+        "dca2ab65aa77980b7874.mp3",
+        "c2a6e6cdb8bd29ff6941.mp3",
+        "4f29ea30e4da1110418b.mp3",
+        "d5a964d5fc6a1babbfdd.mp3"
+      ]
+    },
+    {
+      "index": 19,
+      "role": "teach",
+      "item_id": "丢",
+      "hanzi": "丢",
+      "clips": [
+        "298b6a3a78803561af02.mp3",
+        "c4e829ad309813c69b69.mp3",
+        "96bf811047102e84a454.mp3",
+        "84eb53d0fb3dda50337c.mp3",
+        "298b6a3a78803561af02.mp3",
+        "d5a964d5fc6a1babbfdd.mp3"
+      ]
+    },
+    {
+      "index": 20,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "世纪",
+      "hanzi": "世纪",
+      "pinyin": "shìjì",
+      "meaning_en": "century",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "dca2ab65aa77980b7874.mp3"
+      ],
+      "reveal_clips": [
+        "4f29ea30e4da1110418b.mp3"
+      ]
+    },
+    {
+      "index": 21,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "丢",
+      "hanzi": "丢",
+      "pinyin": "diū",
+      "meaning_en": "lose (something); throw; put aside",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "96bf811047102e84a454.mp3"
+      ],
+      "reveal_clips": [
+        "298b6a3a78803561af02.mp3"
+      ]
+    },
+    {
+      "index": 22,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "一切",
+      "hanzi": "一切",
+      "pinyin": "yị̄qiè",
+      "meaning_en": "all; every; everything",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "ff442b809f98a1782236.mp3"
+      ],
+      "reveal_clips": [
+        "35790d5973e6585a7e01.mp3"
+      ]
+    },
+    {
+      "index": 23,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不仅",
+      "hanzi": "不仅",
+      "pinyin": "bùjǐn",
+      "meaning_en": "not only; not just",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "03d576a64eb9b199a2cd.mp3"
+      ],
+      "reveal_clips": [
+        "c480669969716bf3b2e2.mp3"
+      ]
+    },
+    {
+      "index": 24,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不得不",
+      "hanzi": "不得不",
+      "pinyin": "bù dé bù",
+      "meaning_en": "have to; have no choice but to; cannot but",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "548b29828db4153ed5d3.mp3"
+      ],
+      "reveal_clips": [
+        "312eb7d989914a019929.mp3"
+      ]
+    },
+    {
+      "index": 25,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不管",
+      "hanzi": "不管",
+      "pinyin": "bùguǎn",
+      "meaning_en": "no matter (what, how, etc.); regardless of",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "158e4d77543378e07fd4.mp3"
+      ],
+      "reveal_clips": [
+        "26aaae35d3696355e652.mp3"
+      ]
+    },
+    {
+      "index": 26,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不过",
+      "hanzi": "不过",
+      "pinyin": "bùguò",
+      "meaning_en": "but; however; only",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "f2829bb9e9367d656878.mp3"
+      ],
+      "reveal_clips": [
+        "427cb8cd8f082b8026d2.mp3"
+      ]
+    },
+    {
+      "index": 27,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "与",
+      "hanzi": "与",
+      "pinyin": "yǔ",
+      "meaning_en": "(formal) and; to give; together with; participate; final particle expressing doubt or surprise",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "0d7e29429ee552818a72.mp3"
+      ],
+      "reveal_clips": [
+        "8588549f2cfb07457147.mp3"
+      ]
+    },
+    {
+      "index": 28,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "专业",
+      "hanzi": "专业",
+      "pinyin": "zhuānyè",
+      "meaning_en": "profession; specialized field of study; major",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "fef41348639d6002a260.mp3"
+      ],
+      "reveal_clips": [
+        "6085e71e55a8d4416647.mp3"
+      ]
+    },
+    {
+      "index": 29,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "专门",
+      "hanzi": "专门",
+      "pinyin": "zhuānmén",
+      "meaning_en": "specialized",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "8191788156df11acd317.mp3"
+      ],
+      "reveal_clips": [
+        "fd23fa49987cb40abbc8.mp3"
+      ]
+    },
+    {
+      "index": 30,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "世纪",
+      "hanzi": "世纪",
+      "pinyin": "shìjì",
+      "meaning_en": "century",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "dca2ab65aa77980b7874.mp3"
+      ],
+      "reveal_clips": [
+        "4f29ea30e4da1110418b.mp3"
+      ]
+    },
+    {
+      "index": 31,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "丢",
+      "hanzi": "丢",
+      "pinyin": "diū",
+      "meaning_en": "lose (something); throw; put aside",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "96bf811047102e84a454.mp3"
+      ],
+      "reveal_clips": [
+        "298b6a3a78803561af02.mp3"
+      ]
+    },
+    {
+      "index": 32,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "一切",
+      "hanzi": "一切",
+      "pinyin": "yị̄qiè",
+      "meaning_en": "all; every; everything",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "ff442b809f98a1782236.mp3"
+      ],
+      "reveal_clips": [
+        "35790d5973e6585a7e01.mp3"
+      ]
+    },
+    {
+      "index": 33,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不仅",
+      "hanzi": "不仅",
+      "pinyin": "bùjǐn",
+      "meaning_en": "not only; not just",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "03d576a64eb9b199a2cd.mp3"
+      ],
+      "reveal_clips": [
+        "c480669969716bf3b2e2.mp3"
+      ]
+    },
+    {
+      "index": 34,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不得不",
+      "hanzi": "不得不",
+      "pinyin": "bù dé bù",
+      "meaning_en": "have to; have no choice but to; cannot but",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "548b29828db4153ed5d3.mp3"
+      ],
+      "reveal_clips": [
+        "312eb7d989914a019929.mp3"
+      ]
+    },
+    {
+      "index": 35,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不管",
+      "hanzi": "不管",
+      "pinyin": "bùguǎn",
+      "meaning_en": "no matter (what, how, etc.); regardless of",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "158e4d77543378e07fd4.mp3"
+      ],
+      "reveal_clips": [
+        "26aaae35d3696355e652.mp3"
+      ]
+    },
+    {
+      "index": 36,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不过",
+      "hanzi": "不过",
+      "pinyin": "bùguò",
+      "meaning_en": "but; however; only",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "f2829bb9e9367d656878.mp3"
+      ],
+      "reveal_clips": [
+        "427cb8cd8f082b8026d2.mp3"
+      ]
+    },
+    {
+      "index": 37,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "与",
+      "hanzi": "与",
+      "pinyin": "yǔ",
+      "meaning_en": "(formal) and; to give; together with; participate; final particle expressing doubt or surprise",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "0d7e29429ee552818a72.mp3"
+      ],
+      "reveal_clips": [
+        "8588549f2cfb07457147.mp3"
+      ]
+    },
+    {
+      "index": 38,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "专业",
+      "hanzi": "专业",
+      "pinyin": "zhuānyè",
+      "meaning_en": "profession; specialized field of study; major",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "fef41348639d6002a260.mp3"
+      ],
+      "reveal_clips": [
+        "6085e71e55a8d4416647.mp3"
+      ]
+    },
+    {
+      "index": 39,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "专门",
+      "hanzi": "专门",
+      "pinyin": "zhuānmén",
+      "meaning_en": "specialized",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "8191788156df11acd317.mp3"
+      ],
+      "reveal_clips": [
+        "fd23fa49987cb40abbc8.mp3"
+      ]
+    },
+    {
+      "index": 40,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "世纪",
+      "hanzi": "世纪",
+      "pinyin": "shìjì",
+      "meaning_en": "century",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "dca2ab65aa77980b7874.mp3"
+      ],
+      "reveal_clips": [
+        "4f29ea30e4da1110418b.mp3"
+      ]
+    },
+    {
+      "index": 41,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "丢",
+      "hanzi": "丢",
+      "pinyin": "diū",
+      "meaning_en": "lose (something); throw; put aside",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "96bf811047102e84a454.mp3"
+      ],
+      "reveal_clips": [
+        "298b6a3a78803561af02.mp3"
+      ]
+    },
+    {
+      "index": 42,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "一切",
+      "hanzi": "一切",
+      "pinyin": "yị̄qiè",
+      "meaning_en": "all; every; everything",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "ff442b809f98a1782236.mp3"
+      ],
+      "reveal_clips": [
+        "35790d5973e6585a7e01.mp3"
+      ]
+    },
+    {
+      "index": 43,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不仅",
+      "hanzi": "不仅",
+      "pinyin": "bùjǐn",
+      "meaning_en": "not only; not just",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "03d576a64eb9b199a2cd.mp3"
+      ],
+      "reveal_clips": [
+        "c480669969716bf3b2e2.mp3"
+      ]
+    },
+    {
+      "index": 44,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不得不",
+      "hanzi": "不得不",
+      "pinyin": "bù dé bù",
+      "meaning_en": "have to; have no choice but to; cannot but",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "548b29828db4153ed5d3.mp3"
+      ],
+      "reveal_clips": [
+        "312eb7d989914a019929.mp3"
+      ]
+    },
+    {
+      "index": 45,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不管",
+      "hanzi": "不管",
+      "pinyin": "bùguǎn",
+      "meaning_en": "no matter (what, how, etc.); regardless of",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "158e4d77543378e07fd4.mp3"
+      ],
+      "reveal_clips": [
+        "26aaae35d3696355e652.mp3"
+      ]
+    },
+    {
+      "index": 46,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "不过",
+      "hanzi": "不过",
+      "pinyin": "bùguò",
+      "meaning_en": "but; however; only",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "f2829bb9e9367d656878.mp3"
+      ],
+      "reveal_clips": [
+        "427cb8cd8f082b8026d2.mp3"
+      ]
+    },
+    {
+      "index": 47,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "与",
+      "hanzi": "与",
+      "pinyin": "yǔ",
+      "meaning_en": "(formal) and; to give; together with; participate; final particle expressing doubt or surprise",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "0d7e29429ee552818a72.mp3"
+      ],
+      "reveal_clips": [
+        "8588549f2cfb07457147.mp3"
+      ]
+    },
+    {
+      "index": 48,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "专业",
+      "hanzi": "专业",
+      "pinyin": "zhuānyè",
+      "meaning_en": "profession; specialized field of study; major",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "fef41348639d6002a260.mp3"
+      ],
+      "reveal_clips": [
+        "6085e71e55a8d4416647.mp3"
+      ]
+    },
+    {
+      "index": 49,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "专门",
+      "hanzi": "专门",
+      "pinyin": "zhuānmén",
+      "meaning_en": "specialized",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "8191788156df11acd317.mp3"
+      ],
+      "reveal_clips": [
+        "fd23fa49987cb40abbc8.mp3"
+      ]
+    },
+    {
+      "index": 50,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "世纪",
+      "hanzi": "世纪",
+      "pinyin": "shìjì",
+      "meaning_en": "century",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "dca2ab65aa77980b7874.mp3"
+      ],
+      "reveal_clips": [
+        "4f29ea30e4da1110418b.mp3"
+      ]
+    },
+    {
+      "index": 51,
+      "role": "exercise",
+      "type": "WORD_ALONE",
+      "item_id": "丢",
+      "hanzi": "丢",
+      "pinyin": "diū",
+      "meaning_en": "lose (something); throw; put aside",
+      "prompt_clips": [
+        "f6d31ba53b0e16867d57.mp3",
+        "96bf811047102e84a454.mp3"
+      ],
+      "reveal_clips": [
+        "298b6a3a78803561af02.mp3"
+      ]
+    },
+    {
+      "index": 52,
+      "role": "info",
+      "item_id": null,
+      "clips": [
+        "9f9c829f18160afa4259.mp3"
+      ]
+    }
+  ],
+  "fallback_cloze_to_word_alone": []
+}
